@@ -7,37 +7,15 @@ import ShopSection from './components/ShopSection';
 import Footer from './components/Footer';
 import Toast from './components/Toast';
 import FadeIn from './components/FadeIn';
-import CartDrawer from './components/CartDrawer';
 import LoginPage from './components/LoginPage';
 import ContactPage from './components/ContactPage';
 import TermsPage from './components/TermsPage';
 import RefundPage from './components/RefundPage';
 import ShippingPage from './components/ShippingPage';
-import { Product } from './types';
-import { PRODUCTS } from './constants';
-import { ShoppingBag, User } from 'lucide-react';
+import { User, ShoppingBag } from 'lucide-react';
 
 const App: React.FC = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  const handleAddToCart = (productTitle: string) => {
-    const product = PRODUCTS.find(p => p.title === productTitle);
-    if (product) {
-      setCartItems(prev => [...prev, product]);
-      setToastMessage(`${productTitle} added to cart!`);
-    }
-  };
-
-  const handleRemoveFromCart = (id: string) => {
-    const index = cartItems.findIndex(item => item.id === id);
-    if (index > -1) {
-      const newCart = [...cartItems];
-      newCart.splice(index, 1);
-      setCartItems(newCart);
-    }
-  };
 
   return (
     <Router>
@@ -65,18 +43,6 @@ const App: React.FC = () => {
               <Link to="/login" className="p-2 rounded-full hover:bg-white/10 transition-colors text-white">
                 <User className="w-5 h-5" />
               </Link>
-
-              <button
-                onClick={() => setIsCartOpen(true)}
-                className="relative p-2 rounded-full hover:bg-white/10 transition-colors text-white"
-              >
-                <ShoppingBag className="w-5 h-5" />
-                {cartItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-cyan-500 text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                    {cartItems.length}
-                  </span>
-                )}
-              </button>
             </div>
           </div>
         </nav>
@@ -93,7 +59,7 @@ const App: React.FC = () => {
             } />
             <Route path="/shop" element={
               <FadeIn className="w-full">
-                <ShopSection onAddToCart={handleAddToCart} />
+                <ShopSection />
               </FadeIn>
             } />
             <Route path="/login" element={<LoginPage />} />
@@ -113,13 +79,6 @@ const App: React.FC = () => {
             onClose={() => setToastMessage(null)}
           />
         )}
-
-        <CartDrawer
-          isOpen={isCartOpen}
-          onClose={() => setIsCartOpen(false)}
-          items={cartItems}
-          onRemove={handleRemoveFromCart}
-        />
       </div>
     </Router>
   );

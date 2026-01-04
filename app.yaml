@@ -1,0 +1,17 @@
+name: liquid-ai-design-shop
+region: nyc
+static_sites:
+- name: liquid-ai-design-shop
+  github:
+    repo: btwitsrishi-1/liquid-ai-design-shop
+    branch: main
+    deploy_on_push: true
+  build_command: npm run build
+  output_dir: dist
+  envs:
+  - key: VITE_SUPABASE_URL
+    value: https://artcyvdkgdbrcejlzbdb.supabase.co
+  - key: VITE_SUPABASE_KEY
+    value: sb_secret_SNfRx9d2M_VB6Q47wIu9Ag_Gp0Rn1C_
+  routes:
+  - path: /

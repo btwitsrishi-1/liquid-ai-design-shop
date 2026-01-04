@@ -1,37 +1,8 @@
-import { Product, Feature } from './types';
+import { Feature } from './types';
 import { Sparkles, Zap, Feather } from 'lucide-react';
 import React from 'react';
 
-export const PRODUCTS: Product[] = [
-  {
-    id: 'p1',
-    title: 'Midjourney Arch-Viz Prompts',
-    price: 2499,
-    image: 'https://picsum.photos/400/400?random=1',
-    category: 'Prompts'
-  },
-  {
-    id: 'p2',
-    title: 'Stable Diffusion Texture Pack',
-    price: 1899,
-    image: 'https://picsum.photos/400/400?random=2',
-    category: 'Assets'
-  },
-  {
-    id: 'p3',
-    title: 'ChatGPT Marketing Copy',
-    price: 1299,
-    image: 'https://picsum.photos/400/400?random=3',
-    category: 'Templates'
-  },
-  {
-    id: 'p4',
-    title: 'Neon Cyberpunk UI Kit',
-    price: 3500,
-    image: 'https://picsum.photos/400/400?random=4',
-    category: 'UI Kit'
-  }
-];
+// PRODUCTS removed as we are using Shopify Buy Button integration
 
 export const FEATURES: Feature[] = [
   {
