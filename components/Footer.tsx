@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
 
         <div className="flex gap-8 text-sm text-white/50">
           <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
-          <a href="#" className="hover:text-white transition-colors">Terms</a>
-          <a href="#" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors">License</a>
+          <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+          <Link to="/refund" className="hover:text-white transition-colors">Refunds</Link>
+          <Link to="/shipping" className="hover:text-white transition-colors">Shipping</Link>
         </div>
 
         <div className="text-sm text-white/30">

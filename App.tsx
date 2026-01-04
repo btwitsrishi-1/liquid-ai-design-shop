@@ -10,6 +10,9 @@ import FadeIn from './components/FadeIn';
 import CartDrawer from './components/CartDrawer';
 import LoginPage from './components/LoginPage';
 import ContactPage from './components/ContactPage';
+import TermsPage from './components/TermsPage';
+import RefundPage from './components/RefundPage';
+import ShippingPage from './components/ShippingPage';
 import { Product } from './types';
 import { PRODUCTS } from './constants';
 import { ShoppingBag, User } from 'lucide-react';
@@ -95,6 +98,9 @@ const App: React.FC = () => {
             } />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/refund" element={<RefundPage />} />
+            <Route path="/shipping" element={<ShippingPage />} />
           </Routes>
 
           <Footer />
